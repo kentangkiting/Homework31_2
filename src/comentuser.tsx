@@ -1,14 +1,15 @@
 import React, { FC } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 
 interface IProps {}
 
 const CommentUser: FC<IProps> = (props) => {
-  const { userid } = useParams();
+  const location = useLocation();
+  const some = location.state;
   return (
     <>
       <div>Comment User</div>
-      <p>this is comment user for user {userid}</p>
+      <p>this is comment user for user {some.userid}</p>
     </>
   );
 };

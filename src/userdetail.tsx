@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Outlet, useNavigate, useParams } from "react-router-dom";
+import { Link, Outlet, useNavigate, useParams } from "react-router-dom";
 
 interface IProps {}
 
@@ -15,7 +15,11 @@ const UserDetail: FC<IProps> = (props) => {
       <p style={{ display: "inline" }}>this is user {userid} b </p>
       <button onClick={() => navigate(`b`)}>Post User b</button>
       <br />
-      <button onClick={() => navigate(`comment`)}>Comment User</button>
+      <button>
+        <Link to="comment" state={{ userid: userid }}>
+          Comment User
+        </Link>
+      </button>
 
       <Outlet />
     </>
